@@ -3,7 +3,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 本模块实现朴素贝叶斯分类器。
 
-:copyright: (c) 2019 by zhichao Xia
+:copyright: (c) 2019 by Zhichao Xia
 :modified: 2021-06-22
 
 """
@@ -108,14 +108,10 @@ if __name__ == "__main__":
     fe = FeatureEngineering()
     # 加载训练数据
     X_train, Y_train = fe.build_train("F:/项目/machine_learning/data/train_data.csv", fmt='csv', split='__label__')
-    # print("X_train", X_train)
-    # print("Y_train", Y_train)
     # 加载测试数据
     X_test, Y_test = fe.build_test("F:/项目/machine_learning/data/test_data.csv", fmt='csv', split='__label__')
     # X_valid, Y_valid = fe.build_test("F:/项目/machine_learning/data/test_data.csv", fmt='csv', split='__label__')
-    # print("X_test", X_test)
-    # print("Y_test", Y_test)
-    nb.load_model("../model/nb.model")  # 测试打开
-    nb.test(X_test, Y_test)  # 测试打开
     # nb.train(X_train, Y_train)  # 训练打开
     # nb.save_model("../model/nb.model")  # 训练打开
+    nb.load_model("../model/nb.model")  # 测试打开
+    nb.test(X_test, Y_test)  # 测试打开

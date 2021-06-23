@@ -345,6 +345,7 @@ class FeatureEngineering(object):
         idxs = np.where(np.sum(data_train, axis=1) == 0)
         if idxs[0].any():
             raise ValueError("Empty line found in data, PLEASE remove these line before training: ", idxs)
+        # 逆文档频率（IDF）= log（语料库的文档总数/（包含该词的文档数 + 1））
         idf = np.log((1 + self.size_docs) / (1 + self.term_docs)) + 1
         data_train = data_train * idf
         ret = data_train / np.sqrt(np.sum(data_train ** 2, axis=1)).reshape(data_train.shape[0], 1)
