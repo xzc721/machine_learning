@@ -191,10 +191,10 @@ class FeatureEngineering(object):
 
     def save_model(self, model_path):
         """保存特征"""
-        save_json = {"vocabulary": self.vocabulary,
-                     "term_docs": self.term_docs.tolist(),
-                     "cates": self.cates,
-                     "size_docs": self.size_docs}
+        save_json = {"vocabulary": self.vocabulary,  # 词及编号字典，{词1:0，词2:1，...，词n：n-1}
+                     "term_docs": self.term_docs.tolist(),  # 词出现次数列表，[200.0, 143.0, 119.0，...，2.0]
+                     "cates": self.cates,  # 类别及编号字典，{类别1:0，类别2:1，...，类别n：n-1}
+                     "size_docs": self.size_docs}  # 数据条数
         with open(model_path, "w") as fobj:
             json.dump(save_json, fobj)
 
