@@ -181,7 +181,7 @@ class FeatureEngineering(object):
                 self.vocabulary = {}
                 self.vocabulary_inverse = {}
             if stop_file:
-                self.stop_words = {line.strip() for line in open(stop_file).readlines()}
+                self.stop_words = {line.strip() for line in open(stop_file, encoding='utf-8').readlines()}
             else:
                 self.stop_words = {}
             self.term_docs = None
